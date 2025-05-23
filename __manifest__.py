@@ -7,7 +7,7 @@
         todo
     """,
     'depends': [
-        'base'
+        'stock'
     ],
     'data': [
 
