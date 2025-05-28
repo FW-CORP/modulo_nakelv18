@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 1️⃣ Kanban de productos (stock.product_template_kanban_stock_view) -->
+    <record id="view_product_template_kanban_stock_label_ar" model="ir.ui.view">
+        <field name="name">product.template.kanban.stock.label.AR</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="stock.product_template_kanban_stock_view"/>
+        <field name="arch" type="xml">
+            <!-- Reemplazamos el div que contiene el texto 'On Hand:' / 'A la mano:' -->
+            <xpath expr="//div[contains(normalize-space(.), 'On Hand:') or contains(normalize-space(.), 'A la mano:')]" position="replace">
+                <div>
+                    Stock:
+                    <t t-field="record.qty_available"/>
+                    <span t-field="record.uom_id"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- 2️⃣ Kanban catálogo (stock.product_view_kanban_catalog) -->
+    <record id="view_product_kanban_catalog_stock_label_ar" model="ir.ui.view">
+        <field name="name">product.kanban.catalog.stock.label.AR</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="stock.product_view_kanban_catalog"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[contains(normalize-space(.), 'On Hand:') or contains(normalize-space(.), 'A la mano:')]" position="replace">
+                <div>
+                    Stock:
+                    <t t-field="record.qty_available"/>
+                    <span t-field="record.uom_id"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- 3️⃣ Formulario producto (stock.product_template_form_view) -->
+    <record id="view_product_template_form_stock_label_ar" model="ir.ui.view">
+        <field name="name">product.template.form.stock.label.AR</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="stock.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='qty_available']" position="attributes">
+                <attribute name="string">Stock</attribute>
+            </xpath>
+            <xpath expr="//field[@name='virtual_available']" position="attributes">
+                <attribute name="string">Ingreso</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- 4️⃣ Vista lista productos (stock.product_product_tree_view) -->
+    <record id="view_product_tree_stock_label_ar" model="ir.ui.view">
+        <field name="name">product.product.tree.stock.label.AR</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="stock.product_product_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='qty_available']" position="attributes">
+                <attribute name="string">Stock</attribute>
+            </xpath>
+            <xpath expr="//field[@name='virtual_available']" position="attributes">
+                <attribute name="string">Ingreso</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

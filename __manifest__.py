@@ -1,18 +1,15 @@
 {
-    'name': 'Modulo Nakel',
-    'version': '1.0',
-    'category': 'Fleet',
-    'summary': 'Modificaciones visuales y funcionales para la empresa de distribucion Nakel S.A.',
-    'description': """
-        todo
-    """,
-    'depends': [
-        'stock'
+    "name": "Etiquetas de Stock (ES-AR) – vistas",
+    "version": "18.0.2.0.2",
+    "summary": "Reemplaza visualmente 'On Hand/A la mano' → 'Stock' y 'Forecasted/Pronosticado' → 'Ingreso' (solo español)",
+    "author": "Intaky Dev",
+    "license": "AGPL-3",
+    "category": "Localization",
+    "depends": ["stock", "product"],
+    "data": [
+        "views/stock_views.xml",
+	"data/taxes.xml",
+	"data/tax_groups.xml",
     ],
-    'data': [
-
-    ],
-    'installable': True,
-    'application': False,
-    'auto_install': False,
+    "installable": True,
 }
