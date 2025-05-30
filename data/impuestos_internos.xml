@@ -1,0 +1,31 @@
+<odoo noupdate="1">
+    <!-- Grupo de impuestos -->
+    <record id="tax_group_impuestos_internos" model="account.tax.group">
+        <field name="name">Impuestos Internos</field>
+        <field name="sequence">5</field>
+    </record>
+
+    <!-- Impuesto Interno 10 % -->
+    <record id="tax_ii_10" model="account.tax">
+        <field name="name">II 10 %</field>
+        <field name="type_tax_use">sale</field>
+        <field name="amount_type">percent</field>
+        <field name="amount">10</field>
+        <field name="sequence">10</field>
+        <field name="tax_group_id" ref="tax_group_impuestos_internos"/>
+        <field name="include_base_amount">True</field>
+        <field name="l10n_ar_tribute_code">04</field>
+    </record>
+
+    <!-- Impuesto Interno 20 % -->
+    <record id="tax_ii_20" model="account.tax">
+        <field name="name">II 20 %</field>
+        <field name="type_tax_use">sale</field>
+        <field name="amount_type">percent</field>
+        <field name="amount">20</field>
+        <field name="sequence">10</field>
+        <field name="tax_group_id" ref="tax_group_impuestos_internos"/>
+        <field name="include_base_amount">True</field>
+        <field name="l10n_ar_tribute_code">04</field>
+    </record>
+</odoo>

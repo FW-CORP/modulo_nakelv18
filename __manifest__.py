@@ -5,7 +5,12 @@
     "author": "Intaky Dev",
     "license": "AGPL-3",
     "category": "Localization",
-    "depends": ["stock", "product"],
+    "depends": [
+	"stock", 
+	"product",
+	"account",
+	"l10n_ar"
+     ],
     "data": [
         "views/stock_views.xml",
 	"data/taxes.xml",
