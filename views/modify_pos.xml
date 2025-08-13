@@ -2,27 +2,27 @@
 <odoo>
     <data>
         
-        <!-- Modificar el texto del botón "Salir (sin cerrar sesión)" en PDV -->
+        <!-- Solución 1: Modificar por el texto exacto del span -->
         <template id="modify_pos_logout_text" inherit_id="point_of_sale.chrome">
-            <xpath expr="//button[@class='select-logout btn btn-dark btn-lg']/span[@class='d-flex flex-grow-1 align-items-center']" position="replace">
+            <xpath expr="//span[contains(text(), 'Salir (sin cerrar sesión)')]" position="replace">
                 <span class="d-flex flex-grow-1 align-items-center">
                     Salir / Cerrar Sesión
                 </span>
             </xpath>
         </template>
 
-        <!-- Alternativa más simple: Buscar directamente por el texto -->
-        <template id="modify_pos_logout_text_simple" inherit_id="point_of_sale.chrome">
-            <xpath expr="//span[text()='Salir (sin cerrar sesión)']" position="replace">
+        <!-- Solución 2: Alternativa buscando el botón completo -->
+        <template id="modify_pos_logout_button" inherit_id="point_of_sale.chrome">
+            <xpath expr="//button[contains(@class, 'select-logout')]//span[contains(@class, 'd-flex')]" position="replace">
                 <span class="d-flex flex-grow-1 align-items-center">
                     Salir / Cerrar Sesión
                 </span>
             </xpath>
         </template>
 
-        <!-- Alternativa: Buscar por clase del botón -->
-        <template id="modify_pos_logout_button_class" inherit_id="point_of_sale.chrome">
-            <xpath expr="//button[contains(@class, 'select-logout')]//span" position="replace">
+        <!-- Solución 3: Usando atributos más específicos -->
+        <template id="modify_pos_logout_span" inherit_id="point_of_sale.chrome">
+            <xpath expr="//span[@class='d-flex flex-grow-1 align-items-center'][contains(text(), 'Salir')]" position="replace">
                 <span class="d-flex flex-grow-1 align-items-center">
                     Salir / Cerrar Sesión
                 </span>
