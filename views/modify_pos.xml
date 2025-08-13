@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Modificar el span que contiene "Salir (sin cerrar sesión)" -->
+        <template id="modify_pos_logout_text" inherit_id="point_of_sale.chrome">
+            <xpath expr="//span[contains(@class, 'd-flex') and contains(@class, 'flex-grow-1') and contains(@class, 'align-items-center')]" position="replace">
+                <span class="d-flex flex-grow-1 align-items-center">
+                    Salir / Cerrar Sesión
+                </span>
+            </xpath>
+        </template>
+
+        <!-- Alternativa: Buscar por el texto específico -->
+        <template id="modify_pos_logout_text_alt" inherit_id="point_of_sale.chrome">
+            <xpath expr="//span[contains(text(), 'Salir (sin cerrar sesión)')]" position="replace">
+                <span class="d-flex flex-grow-1 align-items-center">
+                    Salir / Cerrar Sesión
+                </span>
+            </xpath>
+        </template>
+
+        <!-- Alternativa: Si está dentro de un botón específico -->
+        <template id="modify_pos_logout_button" inherit_id="point_of_sale.chrome">
+            <xpath expr="//button[contains(@class, 'select-logout')]//span" position="replace">
+                <span class="d-flex flex-grow-1 align-items-center">
+                    Salir / Cerrar Sesión
+                </span>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

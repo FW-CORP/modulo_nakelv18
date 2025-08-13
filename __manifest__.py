@@ -13,7 +13,7 @@
      ],
     "data": [
         "views/stock_views.xml"
-        "views/user_menu_views.xml",
+        "views/modify_pos.xml",
     ],
     "installable": True,
 }
