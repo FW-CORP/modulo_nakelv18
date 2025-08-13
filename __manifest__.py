@@ -9,9 +9,11 @@
 	"stock", 
 	"product",
 	"account",
+    "web",
      ],
     "data": [
-        "views/stock_views.xml",
+        "views/stock_views.xml"
+        "views/user_menu_views.xml",
     ],
     "installable": True,
 }

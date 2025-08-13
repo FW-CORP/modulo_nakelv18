@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Override del menú de usuario para cambiar texto de logout -->
+        <template id="user_menu_override" inherit_id="web.user_menu" name="User Menu Custom Logout Text">
+            <xpath expr="//a[@data-menu='logout']" position="replace">
+                <a role="menuitem" href="#" data-menu="logout" class="dropdown-item">
+                    <i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>
+                    Salir / Cerrar Sesión
+                </a>
+            </xpath>
+        </template>
+    </data>
+</odoo>
