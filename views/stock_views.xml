@@ -1,65 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- 1️⃣ Kanban de productos (stock.product_template_kanban_stock_view) -->
-    <record id="view_product_template_kanban_stock_label_ar" model="ir.ui.view">
+    <!-- Kanban de INVENTARIO -->
+    <record id="view_product_template_kanban_stock_label_ar"
+            model="ir.ui.view">
         <field name="name">product.template.kanban.stock.label.AR</field>
         <field name="model">product.template</field>
+        <!-- Vista base de inventario -->
         <field name="inherit_id" ref="stock.product_template_kanban_stock_view"/>
         <field name="arch" type="xml">
-            <!-- Reemplazamos el div que contiene el texto 'On Hand:' / 'A la mano:' -->
-            <xpath expr="//div[contains(normalize-space(.), 'On Hand:') or contains(normalize-space(.), 'A la mano:')]" position="replace">
-                <div>
+
+            <!-- Localiza el bloque que Odoo muestra solo
+                 cuando corresponde enseñar existencias y reemplaza -->
+            <xpath expr="//div[contains(@t-if,'show_on_hand_qty_status_button')]"
+                   position="replace">
+                <div groups="stock.group_stock_user"
+                     t-if="record.show_on_hand_qty_status_button.raw_value">
                     Stock:
-                    <t t-field="record.qty_available"/>
-                    <span t-field="record.uom_id"/>
+                    <field name="qty_available"/> <field name="uom_id"/>
                 </div>
             </xpath>
         </field>
     </record>
-
-    <!-- 2️⃣ Kanban catálogo (stock.product_view_kanban_catalog) -->
-    <record id="view_product_kanban_catalog_stock_label_ar" model="ir.ui.view">
-        <field name="name">product.kanban.catalog.stock.label.AR</field>
-        <field name="model">product.product</field>
-        <field name="inherit_id" ref="stock.product_view_kanban_catalog"/>
-        <field name="arch" type="xml">
-            <xpath expr="//div[contains(normalize-space(.), 'On Hand:') or contains(normalize-space(.), 'A la mano:')]" position="replace">
-                <div>
-                    Stock:
-                    <t t-field="record.qty_available"/>
-                    <span t-field="record.uom_id"/>
-                </div>
-            </xpath>
-        </field>
-    </record>
-
-    <!-- 3️⃣ Formulario producto (stock.product_template_form_view) -->
-    <record id="view_product_template_form_stock_label_ar" model="ir.ui.view">
-        <field name="name">product.template.form.stock.label.AR</field>
+        <!-- Lista editable de quants (Ajuste de Inventario) -->
+    <record id="view_stock_quant_inventory_list_label_ar"
+            model="ir.ui.view">
+        <field name="name">product.product.template.tree.view.AR</field>
         <field name="model">product.template</field>
-        <field name="inherit_id" ref="stock.product_template_form_view"/>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='qty_available']" position="attributes">
-                <attribute name="string">Stock</attribute>
+
+            <!-- Cambiamos el texto de la columna “On hand” -->
+            <xpath expr="//field[@name='qty_available']"
+                position="attributes">
+                <attribute name="string">En Stock</attribute>
             </xpath>
-            <xpath expr="//field[@name='virtual_available']" position="attributes">
-                <attribute name="string">Ingreso</attribute>
-            </xpath>
+
         </field>
     </record>
 
-    <!-- 4️⃣ Vista lista productos (stock.product_product_tree_view) -->
-    <record id="view_product_tree_stock_label_ar" model="ir.ui.view">
-        <field name="name">product.product.tree.stock.label.AR</field>
-        <field name="model">product.product</field>
-        <field name="inherit_id" ref="stock.product_product_tree_view"/>
+    <record id="product_label_ar"
+            model="ir.ui.view">
+        <field name="name">product.product.product.tree.view.AR</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_product_tree_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='qty_available']" position="attributes">
-                <attribute name="string">Stock</attribute>
+
+            <!-- Cambiamos el texto de la columna “On hand” -->
+            <xpath expr="//field[@name='qty_available']"
+                position="attributes">
+                <attribute name="string">En Stock</attribute>
             </xpath>
-            <xpath expr="//field[@name='virtual_available']" position="attributes">
-                <attribute name="string">Ingreso</attribute>
-            </xpath>
+
         </field>
     </record>
 </odoo>
