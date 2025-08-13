@@ -10,6 +10,7 @@
 	"product",
 	"account",
     "web",
+    "point_of_sale",
      ],
     "data": [
         "views/stock_views.xml"
