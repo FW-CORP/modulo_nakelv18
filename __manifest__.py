@@ -6,16 +6,16 @@
     "license": "AGPL-3",
     "category": "Localization",
     "depends": [
-	"stock", 
-	"product",
-	"account",
-    "web",
-    "point_of_sale",
-    "l10n_ar_pos",
-     ],
+        "stock", 
+        "product",
+        "account",
+        "web",
+        "point_of_sale",
+        "l10n_ar_pos",
+    ],
     "data": [
         "views/stock_views.xml",
-        "views/modify_pos.xml",
-        ],
+        "views/modify_pos.xml"
+    ],
     "installable": True,
 }
