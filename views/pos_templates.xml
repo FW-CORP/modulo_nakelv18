@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <template id="change_logout_text" inherit_id="point_of_sale.template_client_action" priority="20">
+        <!-- Heredar directamente del login_screen.xml -->
+        <template id="change_logout_text" inherit_id="point_of_sale.login_screen" priority="20">
             <xpath expr="//button[contains(@class,'select_logout')]/span" position="replace">
-                <span>Salir / Cerrar Sesión</span>
+                <span class="d-flex flex-grow-1 align-items-center">
+                    Salir / Cerrar Sesión
+                </span>
             </xpath>
         </template>
     </data>
