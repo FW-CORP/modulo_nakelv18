@@ -2,27 +2,8 @@
 <odoo>
     <data>
         
-        <!-- Solución 1: Modificar por el texto exacto del span -->
-        <template id="modify_pos_logout_text" inherit_id="point_of_sale.chrome">
-            <xpath expr="//span[contains(text(), 'Salir (sin cerrar sesión)')]" position="replace">
-                <span class="d-flex flex-grow-1 align-items-center">
-                    Salir / Cerrar Sesión
-                </span>
-            </xpath>
-        </template>
-
-        <!-- Solución 2: Alternativa buscando el botón completo -->
-        <template id="modify_pos_logout_button" inherit_id="point_of_sale.chrome">
-            <xpath expr="//button[contains(@class, 'select-logout')]//span[contains(@class, 'd-flex')]" position="replace">
-                <span class="d-flex flex-grow-1 align-items-center">
-                    Salir / Cerrar Sesión
-                </span>
-            </xpath>
-        </template>
-
-        <!-- Solución 3: Usando atributos más específicos -->
-        <template id="modify_pos_logout_span" inherit_id="point_of_sale.chrome">
-            <xpath expr="//span[@class='d-flex flex-grow-1 align-items-center'][contains(text(), 'Salir')]" position="replace">
+        <template id="modify_pos_logout_text" inherit_id="point_of_sale.pos_template">
+            <xpath expr="//div[hasclass('screen-login')]//button[contains(@class, 'select_logout')]/span" position="replace">
                 <span class="d-flex flex-grow-1 align-items-center">
                     Salir / Cerrar Sesión
                 </span>
