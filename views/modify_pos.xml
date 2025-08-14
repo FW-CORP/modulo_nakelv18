@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        
-        <template id="modify_pos_logout_text" inherit_id="point_of_sale.pos_template">
-            <xpath expr="//div[hasclass('screen-login')]//button[contains(@class, 'select_logout')]/span" position="replace">
+        <!-- Heredar directamente del template del módulo argentino -->
+        <template id="modify_ar_pos_logout" inherit_id="l10n_ar_sales_pos.template_name">
+            <xpath expr="//button[contains(@class, 'select_logout')]/span" position="replace">
                 <span class="d-flex flex-grow-1 align-items-center">
                     Salir / Cerrar Sesión
                 </span>
             </xpath>
         </template>
-
     </data>
 </odoo>
