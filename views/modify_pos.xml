@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
-        <!-- Versión robusta que funciona con l10n_ar_sales_pos -->
-        <template id="modify_pos_logout_text" inherit_id="point_of_sale.pos_template" priority="20">
-            <xpath expr="//button[hasclass('select_logout')]/span" position="replace">
-                <span class="d-flex flex-grow-1 align-items-center">
-                    Salir / Cerrar Sesión
-                </span>
+    <data>
+        <template id="custom_logout_text" inherit_id="point_of_sale.pos_template" priority="99">
+            <xpath expr="//button[contains(@class, 'select_logout')]" position="attributes">
+                <attribute name="innerHTML">
+                    <![CDATA[
+                    <span class="d-flex flex-grow-1 align-items-center">Salir / Cerrar Sesión</span>
+                    ]]>
+                </attribute>
             </xpath>
         </template>
     </data>
