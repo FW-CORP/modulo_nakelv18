@@ -1,12 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <template id="custom_logout_text" inherit_id="point_of_sale.pos_template" priority="99">
-            <xpath expr="//button[contains(@class, 'select_logout')]" position="attributes">
-                <attribute name="innerHTML">
-                    <![CDATA[
-                    <span class="d-flex flex-grow-1 align-items-center">Salir / Cerrar Sesión</span>
-                    ]]>
-                </attribute>
+        <!-- Para Odoo 18 usa inherit_id="point_of_sale.chrome" -->
+        <template id="change_logout_text" inherit_id="point_of_sale.chrome" priority="20">
+            <xpath expr="//button[contains(@class,'select_logout')]/span" position="replace">
+                <span class="d-flex flex-grow-1 align-items-center">
+                    Salir / Cerrar Sesión
+                </span>
             </xpath>
         </template>
     </data>
