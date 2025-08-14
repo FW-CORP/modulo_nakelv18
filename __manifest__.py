@@ -14,5 +14,10 @@
         "views/stock_views.xml",
         "views/pos_templates.xml"
     ],
+    "assets": {
+        "point_of_sale_assets": [
+            "modulo_nakelv18/static/src/js/pos_custom.js",
+        ]
+    },
     "installable": True
 }
