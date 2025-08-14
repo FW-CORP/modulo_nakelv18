@@ -11,9 +11,10 @@
 	"account",
     "web",
     "point_of_sale",
+    "l10n_ar_pos",
      ],
     "data": [
-        "views/stock_views.xml"
+        "views/stock_views.xml",
         "views/modify_pos.xml",
     ],
     "installable": True,
